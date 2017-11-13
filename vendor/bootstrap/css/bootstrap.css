@@ -4712,10 +4712,10 @@ tbody.collapse.show {
 }
 
 .media-body {
-  -ms-flex: 1;
-      flex: 1;
   padding-left: 80px;
   margin-left: 80px;
+  -ms-flex: 1;
+      flex: 1;
 }
 
 .list-group {
