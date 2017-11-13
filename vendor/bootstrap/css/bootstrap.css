@@ -4714,6 +4714,7 @@ tbody.collapse.show {
 .media-body {
   -ms-flex: 1;
       flex: 1;
+  padding-left: 80px;
 }
 
 .list-group {
