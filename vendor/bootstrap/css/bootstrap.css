@@ -4705,6 +4705,7 @@ tbody.collapse.show {
 }
 
 .media {
+  margin-bottom: 80px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: start;
