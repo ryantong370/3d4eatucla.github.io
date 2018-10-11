@@ -40,7 +40,7 @@ $(document).ready(function(){
 
     about.onclick = function() {
         if (window.location.href == 'https://3d4eatucla.github.io/contact.html') {
-            window.location.href = './home.html';
+            window.location.href = './index.html';
         } else {
             window.location.href = './contact.html';
         }
@@ -56,7 +56,7 @@ $(document).ready(function(){
 
     projects.onclick = function() {
         if (window.location.href == 'https://3d4eatucla.github.io/projects.html') {
-            window.location.href = './home.html';
+            window.location.href = './index.html';
         } else {
             window.location.href = './projects.html';
         }
@@ -72,7 +72,7 @@ $(document).ready(function(){
 
     media.onclick = function() {
         if (window.location.href == 'https://3d4eatucla.github.io/media.html') {
-            window.location.href = './home.html';
+            window.location.href = './index.html';
         } else {
             window.location.href = './media.html';
         }
@@ -88,7 +88,7 @@ $(document).ready(function(){
 
     workshops.onclick = function() {
         if (window.location.href == 'https://3d4eatucla.github.io/workshops.html') {
-            window.location.href = './home.html';
+            window.location.href = './index.html';
         } else {
             window.location.href = './workshops.html';
         }

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <title>3D4E at UCLA: Design. Tinker. Print.</title>
-<html lang="en">
-
-  <head>
+<head>    
+    <link href="./3d4e.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <!-- TODO: Update Mobile UIUX -->
     <meta charset="UTF-8">
@@ -15,121 +17,182 @@
     <meta name="author" content="Cheuk Yin Phipson Lee (李卓彥)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/x-icon" href="img/favicon.png">
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- Custom styles for this template -->
-    <link href="css/clean-blog.min.css" rel="stylesheet">
 
   </head>
+  <body style="height: 100%">
+    <div class="ucla3d4e-parallax"></div>
 
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">3D4E at UCLA</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="leadership.html">Leadership</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sponsors.html">Sponsors</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="projects.html">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="media.html">Media</a>
-            </li>              
-            <li class="nav-item">
-              <a class="nav-link" href="workshops.html">Workshop Archive</a>
-            </li>            
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
-        </div>
+    <!-- Navigation Bar: Button to Initiate Navigation -->
+    <div class="uclae3d4e-navbutton">
+      <div id="3d4e-icon" class="nav-icon" style="z-index: 2">
+          <svg id="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+              <style>.st0 {
+                  fill:none;
+                  stroke:#f1c40f;
+                  stroke-width:30;
+                  stroke-miterlimit:10;
+              }
+              </style>
+              <path id="Three" class="st0" d="M139 102c9.1-7.9 23.6-18.8 43.9-26.6 15.6-6 29.6-8.4 40.1-9.4v152H57"/>
+              <path id="ThreeStroke" class="st0" d="M221 145h-79"/>
+              <path id="D" class="st0" d="M275 66v152h150c-1.5-13.7-8.8-66.3-54-108-38-35.1-80.8-42.2-96-44z"/>
+              <path id="FourR" class="st0" d="M223 250v184"/>
+              <path id="FourL" class="st0" d="M71 250c.1 12.6 1.7 30.2 8 50 5.2 16.4 12 29.4 18 39h126"/>
+              <path id="E" class="st0" d="M443 265H275v154c11.4-1.3 28.8-4.6 48-14 19.5-9.6 33-21.6 41-30"/>
+              <path id="EStroke" class="st0" d="M275 339h84"/>
+          </svg>
       </div>
-    </nav>
-
-    <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/campus.jpg')">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="site-heading">
-              <h1><strong>3D4E at <font color="steelblue">UCLA</font></strong></h1>
-              <span class="subheading">DESIGN.TINKER.PRINT</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>    
+    </div>
     
-    <!-- Main Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <p> <h2>3D4E is an intercollegiate network of 3D printing and rapid-prototyping enthusiasts.</h2> </p>
-          <p>Chapters span across the southwest, including UCLA, University of Southern California, San Diego State 
-                        University, University of Arizona, and many others, with membership constantly expanding. Our club’s main focus is on group projects, in which we design, manufacture, and test using CAD 
-                        software and 3D printing. These projects range from recreational, like RC cars, to life-changing, like our prosthetic
-                        hand. In addition to our group efforts, 3D4E also supports members with the resources and expertise they might need to pursue their own individual ideas.</p>
-          <p>3D4E at UCLA is generously sponsored by AIO Robotics, New Matter, Robo3D, and XYZ. Their donations of printers and filament
-                        make our club's endeavours possible. Space for storage and operation of our printers is furnished by the UCLA Library system and the Lux Lab. </p>
-        </div>
+    <!-- Navigation Bar: Actual Menu (Display upon Button Click) -->
+    <div id="3d4e-menu" class="ucla3d4e-navmenu" style="z-index: 1">
+      <div style="margin: auto" class="ucla3d4e-nav">
+        <h4 id="about" class="ucla3d4e-navtitle">About Us</h4>
+      </div>
+      <div style="margin: auto" class="ucla3d4e-nav">
+        <h4 id="projects" class="ucla3d4e-navtitle">Projects</h4>
+      </div>
+      <div style="margin: auto">
+        <h3 class="ucla3d4e-navtitle"></h3>
+      </div>
+      <div style="margin: auto" class="ucla3d4e-nav">
+        <h4 id="media" class="ucla3d4e-navtitle">Media</h4>
+      </div>
+      <div style="margin: auto" class="ucla3d4e-nav">
+        <h4 id="workshops" class="ucla3d4e-navtitle">Workshops</h4>
       </div>
     </div>
 
-    <hr>
-  
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <ul class="list-inline text-center">
-
-              <li class="list-inline-item">
-                <a href="https://www.facebook.com/3D4E.UCLA/">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-
-            </ul>
-            <p class="copyright text-muted">Copyright &copy; 3D4E at UCLA 2017</p>
+    <!-- Content for Home Page -->
+    <div id="ucla3d4e-body" class="ucla3d4e-text">
+        <div id="image" style="padding-top: 5%; padding-bottom: 5%">
+            <div class="carousel js-flickity">
+                <div id="cell1" class="carousel-cell">
+                  <img id="img1" src="img/media/rpoon_1.jpg"/>
+                </div>
+                <div id="cell2" class="carousel-cell">
+                  <img id="img2" src="img/media/Spock Hand.jpg"/>
+                </div>
+                <div id="cell3" class="carousel-cell">
+                  <img id="img3" src="img/media/luxlab_4.jpg"/>
+                </div>
+                <div id="cell4" class="carousel-cell">
+                  <img id="img4" src="img/media/workshop_1.jpg"/>
+                </div>
+                <div id="cell5" class="carousel-cell">
+                    <img id="img5" src="img/media/showcase_1.jpg"/>
+                  </div>
+                <div id="cell6" class="carousel-cell">
+                    <img id="img6" src="img/media/showcase_4.jpg"/>
+                  </div>
           </div>
         </div>
+        <div id="text" class="ucla3d4e-text">
+          <p id="fadein-1"> <h4>3D4E is an intercollegiate network of 3D printing and rapid-prototyping enthusiasts</h4> </p>
+          <br><br>
+          <p id="fadein-2">Chapters span across the southwest, including UCLA, University of Southern California, San Diego State 
+                        University, University of Arizona, and many others, with membership constantly expanding. Our club’s main focus is on group projects, in which we design, manufacture, and test using CAD 
+                        software and 3D printing. These projects range from recreational, like RC cars, to life-changing, like our prosthetic
+                        hand. In addition to our group efforts, 3D4E also supports members with the resources and expertise they might need to pursue their own individual ideas.</p>
+          <br>
+          <p id="fadein-3">3D4E at UCLA is generously sponsored by AIO Robotics, New Matter, Robo3D, and XYZ. Their donations of printers and filament
+                        make our club's endeavours possible. Space for storage and operation of our printers is furnished by the UCLA Library system and the Lux Lab. </p>
       </div>
-    </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <p>Signing up for our weekly newsletter is the best way to stay up to date on club events and projects! If you have questions, you
+               can also send us a message over facebook or via email at: <i class="fa fa-envelope-o fa-fw"></i> 3d4e[dot]ucla[at]gmail[dot]com
+            </p> 
+      
+            <!-- Begin MailChimp Signup Form -->
+                <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+                <style type="text/css">
+                    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+                    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                </style>
+                <div id="mc_embed_signup">
+                <form action="https://github.us11.list-manage.com/subscribe/post?u=b678857f8ed5498f4a0aad858&amp;id=5da700cffa" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                    <h5>Subscribe to 3D4E's mailing list</h5>
+                <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                <div class="mc-field-group">
+                    <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                </label>
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                </div>
+                <div class="mc-field-group">
+                    <label for="mce-FNAME">First Name </label>
+                    <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+                </div>
+                <div class="mc-field-group">
+                    <label for="mce-LNAME">Last Name </label>
+                    <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+                </div>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b678857f8ed5498f4a0aad858_5da700cffa" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                    </div>
+                </form>
+                </div>
+                <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+            <!--End mc_embed_signup-->
+            
+            
+            <p> If you are looking to contribute, we also welcome any and all donations! All proceeds go towards funding our awesome projects! </p>
+            
+            <ul class="list-inline text-center">
+                <li class="list-inline-item">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="5HBGKD8DRH47G">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <img alt=""src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </li>
+            </ul>   
+   
+          </div>
+        </div>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/clean-blog.min.js"></script>
-
-  </body>
-
+      <footer>
+          <div class="socmed">
+                  <div class="socicon" id="youtube">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90">
+                      <path d="M90 26.958C90 19.525 83.979 13.5 76.55 13.5h-63.1C6.021 13.5 0 19.525 0 26.958v36.084C0 70.475 6.021 76.5 13.45 76.5h63.1C83.979 76.5 90 70.475 90 63.042V26.958zM36 60.225V26.33l25.702 16.947L36 60.225z"/>
+                    </svg>
+                  </div>
+                  <div class="socicon">
+                      <svg id="facebook" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90">
+                          <path d="M90 15.001C90 7.119 82.884 0 75 0H15C7.116 0 0 7.119 0 15.001v59.998C0 82.881 7.116 90 15.001 90H45V56H34V41h11v-5.844C45 25.077 52.568 16 61.875 16H74v15H61.875C60.548 31 59 32.611 59 35.024V41h15v15H59v34h16c7.884 0 15-7.119 15-15.001V15.001z"/>
+                      </svg>
+                  </div>
+                  <div class="socicon">
+                    <svg id="github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438.549 438.549">
+                      <path d="M409.132 114.573c-19.608-33.596-46.205-60.194-79.798-79.8-33.598-19.607-70.277-29.408-110.063-29.408-39.781 0-76.472 9.804-110.063 29.408-33.596 19.605-60.192 46.204-79.8 79.8C9.803 148.168 0 184.854 0 224.63c0 47.78 13.94 90.745 41.827 128.906 27.884 38.164 63.906 64.572 108.063 79.227 5.14.954 8.945.283 11.419-1.996 2.475-2.282 3.711-5.14 3.711-8.562 0-.571-.049-5.708-.144-15.417a2549.81 2549.81 0 0 1-.144-25.406l-6.567 1.136c-4.187.767-9.469 1.092-15.846 1-6.374-.089-12.991-.757-19.842-1.999-6.854-1.231-13.229-4.086-19.13-8.559-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-.951-2.568-2.098-3.711-3.429-1.142-1.331-1.997-2.663-2.568-3.997-.572-1.335-.098-2.43 1.427-3.289 1.525-.859 4.281-1.276 8.28-1.276l5.708.853c3.807.763 8.516 3.042 14.133 6.851 5.614 3.806 10.229 8.754 13.846 14.842 4.38 7.806 9.657 13.754 15.846 17.847 6.184 4.093 12.419 6.136 18.699 6.136 6.28 0 11.704-.476 16.274-1.423 4.565-.952 8.848-2.383 12.847-4.285 1.713-12.758 6.377-22.559 13.988-29.41-10.848-1.14-20.601-2.857-29.264-5.14-8.658-2.286-17.605-5.996-26.835-11.14-9.235-5.137-16.896-11.516-22.985-19.126-6.09-7.614-11.088-17.61-14.987-29.979-3.901-12.374-5.852-26.648-5.852-42.826 0-23.035 7.52-42.637 22.557-58.817-7.044-17.318-6.379-36.732 1.997-58.24 5.52-1.715 13.706-.428 24.554 3.853 10.85 4.283 18.794 7.952 23.84 10.994 5.046 3.041 9.089 5.618 12.135 7.708 17.705-4.947 35.976-7.421 54.818-7.421s37.117 2.474 54.823 7.421l10.849-6.849c7.419-4.57 16.18-8.758 26.262-12.565 10.088-3.805 17.802-4.853 23.134-3.138 8.562 21.509 9.325 40.922 2.279 58.24 15.036 16.18 22.559 35.787 22.559 58.817 0 16.178-1.958 30.497-5.853 42.966-3.9 12.471-8.941 22.457-15.125 29.979-6.191 7.521-13.901 13.85-23.131 18.986-9.232 5.14-18.182 8.85-26.84 11.136-8.662 2.286-18.415 4.004-29.263 5.146 9.894 8.562 14.842 22.077 14.842 40.539v60.237c0 3.422 1.19 6.279 3.572 8.562 2.379 2.279 6.136 2.95 11.276 1.995 44.163-14.653 80.185-41.062 108.068-79.226 27.88-38.161 41.825-81.126 41.825-128.906-.01-39.771-9.818-76.454-29.414-110.049z"/>
+                    </svg>
+                  </div>
+                  <div class="socicon">
+                    <svg id="instagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                      <path d="M352 0H160C71.648 0 0 71.648 0 160v192c0 88.352 71.648 160 160 160h192c88.352 0 160-71.648 160-160V160C512 71.648 440.352 0 352 0zm112 352c0 61.76-50.24 112-112 112H160c-61.76 0-112-50.24-112-112V160C48 98.24 98.24 48 160 48h192c61.76 0 112 50.24 112 112v192z"/>
+                      <path d="M256 128c-70.688 0-128 57.312-128 128s57.312 128 128 128 128-57.312 128-128-57.312-128-128-128zm0 208c-44.096 0-80-35.904-80-80 0-44.128 35.904-80 80-80s80 35.872 80 80c0 44.096-35.904 80-80 80z"/>
+                      <circle cx="393.6" cy="118.4" r="17.056"/>
+                    </svg>
+                  </div>
+                  <div class="socicon">
+                      <svg id="email" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+                      </svg>
+                  </div>
+          </div>
+      </footer>
+    </div>
+    <script src="./JS/TweenMax.min.js" type="text/javascript"></script>
+    <script src="./JS/MorphSVGPlugin.min.js" type="text/javascript"></script>
+    <script src="./JS/menu.js" type="text/javascript"></script>
+</body>
 </html>
