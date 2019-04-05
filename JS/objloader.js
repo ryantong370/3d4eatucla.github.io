@@ -1,8 +1,12 @@
 var container;
 var camera, scene, renderer;
 var mouseX = 0, mouseY = 0;
+var counter = 1;
 var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
+var objsrc = ['./models/ukulele.obj', './models/chesspieces.obj', './models/windmill.obj', './models/chair.obj', './models/roboarm.obj'];
+var objpos = [10, 100, 10, 10, 250];
+var remover;
 
 init();
 animate();
@@ -12,7 +16,6 @@ function init() {
   // document.body.appendChild(container);
 
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
-  camera.position.z = 100;
 
   // scene
   scene = new THREE.Scene();
@@ -20,7 +23,7 @@ function init() {
   var ambient = new THREE.AmbientLight(0xbbbbbb);
   scene.add(ambient);
 
-  var directionalLight = new THREE.DirectionalLight(0xdddddd);
+  var directionalLight = new THREE.DirectionalLight(0xdddddd, 0.5);
   directionalLight.position.set(0, 0, 1);
   scene.add(directionalLight);
 
@@ -43,12 +46,40 @@ function init() {
 
   var onError = function(xhr) {};
 
+  // Initial obj
+  // camera
+  camera.position.z = objpos[0];
+
   // model
   var loader = new THREE.OBJLoader(manager);
-  loader.load('./models/3dprinter.obj', function(object) {
-    scene.add(object);
+  loader.load(objsrc[0], function(object) {
+  scene.add(object);
+  remover = object;
 
   }, onProgress, onError);
+
+  var TimerVar = setInterval(TimerDisplay, 10000);
+
+  function TimerDisplay() {
+    scene.remove(remover);
+    var index = counter%5;
+    var campos = objpos[index];
+    var src = objsrc[index];
+    
+    // camera
+    camera.position.z = campos;
+
+    // model
+    var loader = new THREE.OBJLoader(manager);
+    loader.load(src, function(object) {
+    scene.add(object);
+    remover = object;
+
+    }, onProgress, onError);
+  
+    counter = counter + 1;
+
+  }
 
   renderer = new THREE.WebGLRenderer({ alpha: true });
   renderer.setPixelRatio(window.devicePixelRatio);
