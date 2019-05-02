@@ -91,7 +91,7 @@
         }
 
         youtube.onclick = function() {
-            window.href = url("");
+            window.open("");
         }
 
         facebook.onmouseover = function() {
@@ -103,7 +103,7 @@
         }
 
         facebook.onclick = function() {
-            window.href = url("");
+            window.open("https://www.facebook.com/3D4E.UCLA/");
         }
 
         github.onmouseover = function() {
@@ -115,7 +115,7 @@
         }
 
         github.onclick = function() {
-            window.href = url("");
+            window.open("");
         }
 
         ig.onmouseover = function() {
@@ -127,7 +127,7 @@
         }
 
         ig.onclick = function() {
-            window.href = url("");
+            window.open("");
         }
 
         email.onmouseover = function() {
@@ -139,7 +139,7 @@
         }
 
         email.onclick = function() {
-            window.href = url("");
+            window.open("");
         }
     })
 }) (jQuery);
