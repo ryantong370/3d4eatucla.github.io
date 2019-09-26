@@ -2,80 +2,344 @@
     {
         $(document).ready(function(){
         var navlogo = document.getElementById("main-icon");
-        var navbar = document.getElementById("3d4e-menu");
         var about = document.getElementById("about");
         var projects = document.getElementById("projects");
         var media = document.getElementById("media");
         var workshops = document.getElementById("workshops");
         var openMenu = false;
+
+        // Social Media
+        var facebook = document.getElementById('facebook');
+        facebook.addEventListener('click', function() {
+             window.location.href = 'https://www.facebook.com/3D4E.UCLA/';
+        })
+
+        var email = document.getElementById('email');
+        email.addEventListener('click', function () {
+            var link = "mailto:3d4e.ucla@gmail.com";
+            window.location.href = link;
+        })
+
+        var github = document.getElementById('github');
+        github.addEventListener('click', function () {
+            window.location.href = 'https://github.com/3D4EatUCLA';
+        })
+
         navlogo.style.cursor = 'pointer';
 
         navlogo.onmouseover = function(){
             //console.log("Over");
-            TweenMax.to("#main-icon", 0.5, {transformOrigin:"50% 50%", scale: 1.1});   
+            TweenMax.to(navlogo, 0.5, {transformOrigin:"50% 50%", scale: 1.1});   
         };
 
         navlogo.onmouseout = function() {
-            TweenMax.to("#main-icon", 0.5, {transformOrigin:"50% 50%", scale: 1});
+            TweenMax.to(navlogo, 0.5, {transformOrigin:"50% 50%", scale: 1});
         };
 
-        navlogo.onclick = function() {
-            window.location.href = './index.html';
-        }
+        // TODO: Media and Printer Animation on press for first time
+        // TODO: Underline instead of color change
+        // TODO: Investigate reason for blue borders?
+        /*
+
+        var ChangeColorAbout = new TimelineMax({paused: true});
+        ChangeColorAbout.to(about, 0.5, {css:{color:"#FFF"}});
+
+        var ChangeColorProjects = new TimelineMax({paused: true});
+        ChangeColorProjects.to(projects, 0.5, {css:{color:"#FFF"}});
+
+        var ChangeColorMedia = new TimelineMax({paused: true});
+        ChangeColorMedia.to(media, 0.5, {css:{color:"#FFF"}});
+
+        var ChangeColorWorkshops = new TimelineMax({paused: true});
+        ChangeColorWorkshops.to(workshops, 0.5, {css:{color:"#FFF"}});
 
         about.onmouseover = function() {
-            TweenMax.to(about, 0.5, {css:{color:"#FFF"}});
+            ChangeColorAbout.play();
         }
 
         about.onmouseout = function() {
-            TweenMax.to(about, 0.5, {css:{color:"#3498db"}});
-        }
-
-        about.onclick = function() {
-            window.location.href = './index.html';
-        }
-
-        about.onclick = function() {
-            window.location.href = './contact.html';
+            ChangeColorAbout.reverse();
         }
 
         projects.onmouseover = function() {
-            TweenMax.to(projects, 0.5, {css:{color:"#FFF"}});
+            ChangeColorProjects.play();
         }
 
         projects.onmouseout = function() {
-            TweenMax.to(projects, 0.5, {css:{color:"#3498db"}});
-        }
-
-        projects.onclick = function() {
-            window.location.href = './projects.html';
+            ChangeColorProjects.reverse();
         }
 
         media.onmouseover = function() {
-            TweenMax.to(media, 0.5, {css:{color:"#FFF"}});
+            ChangeColorMedia.play();
         }
 
         media.onmouseout = function() {
-            TweenMax.to(media, 0.5, {css:{color:"#3498db"}});
-        }
-
-        media.onclick = function() {
-            window.location.href = './media.html';
+            ChangeColorMedia.reverse();
         }
 
         workshops.onmouseover = function() {
-            TweenMax.to(workshops, 0.5, {css:{color:"#FFF"}});
+            ChangeColorWorkshops.play();
         }
 
         workshops.onmouseout = function() {
-            TweenMax.to(workshops, 0.5, {css:{color:"#3498db"}});
+            ChangeColorWorkshops.reverse();
         }
+         */
 
-        workshops.onclick = function() {
-            window.location.href = './workshops.html';
-        }
+        /* Use scroll location to change the color scheme */
+        var projectsTop = document.getElementById("tab-projects").offsetTop;
+        var mediaTop = document.getElementById("tab-media").offsetTop;
+        var workshopsTop = document.getElementById("tab-workshops").offsetTop;
+        var aboutTop = document.getElementById("tab-about").offsetTop;
+
+        window.addEventListener('scroll', function(e) {
+            var scrollTop = $(window).scrollTop();
+            var threshold = 15;
+            if (scrollTop >= aboutTop - threshold) {
+                TweenMax.to(".ucla3d4e-navtitle", 0.25, {css:{color: "#62d2a2"}});
+                TweenMax.to(".logostyle", 0.25, {stroke: "#1fab89"});
+                TweenMax.to(".socialmedia", 0.25, {stroke: "#62d2a2"});
+                TweenMax.to(".socialmedia", 0.25, {fill: "#62d2a2"});
+            } else if (scrollTop >= mediaTop - threshold) {
+                TweenMax.to(".ucla3d4e-navtitle", 0.25, {css:{color: "#e23e57"}});
+                TweenMax.to(".logostyle", 0.25, {stroke: "#e84545"});
+                TweenMax.to(".socialmedia", 0.25, {stroke: "#e23e57"});
+                TweenMax.to(".socialmedia", 0.25, {fill: "#e23e57"});
+            } else if (scrollTop >= workshopsTop - threshold) {
+                TweenMax.to(".ucla3d4e-navtitle", 0.25, {css:{color: "#b8b0b0"}});
+                TweenMax.to(".logostyle", 0.25, {stroke: "#f5f5f5"});
+                TweenMax.to(".socialmedia", 0.25, {stroke: "#b8b0b0"});
+                TweenMax.to(".socialmedia", 0.25, {fill: "#b8b0b0"});
+            } else if (scrollTop >= projectsTop - threshold) {
+                TweenMax.to(".ucla3d4e-navtitle", 0.25, {css:{color: "#ff9a3c"}});
+                TweenMax.to(".logostyle", 0.25, {stroke: "#ffc93c"});
+                TweenMax.to(".socialmedia", 0.25, {stroke: "#ff9a3c"});
+                TweenMax.to(".socialmedia", 0.25, {fill: "#ff9a3c"});
+            } else {
+                TweenMax.to(".ucla3d4e-navtitle", 0.25, {css:{color: "#3f72af"}});
+                TweenMax.to(".logostyle", 0.25, {stroke: "#112d4e"});
+                TweenMax.to(".socialmedia", 0.25, {stroke: "#3f72af"});
+                TweenMax.to(".socialmedia", 0.25, {fill: "#3f72af"});
+            }
+        });
+
+        /* Printer animation */
+        var extruder = document.getElementById('Extruder');
+        var pipe = document.getElementById('Pipe');
+        var bg = document.getElementById('PrinterBG');
+        var ukulele = document.getElementById('Ukulele');
+        var hand = document.getElementById('Arm');
+        var drone = document.getElementById('Drone');
+
+        var t1 = new TimelineMax({paused: true}); // Position the pipe and the extruder
+        t1
+        .to(extruder, 0.5, {
+            x: 88,
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        })
+        .to(pipe, 0.5, {
+            y: 166,
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        }, 0)
+        .set(ukulele, {opacity: 0})
+        .set(hand, {opacity: 0})
+        .set(drone, {opacity: 0});
+
+        var t2 = new TimelineMax({repeat: 5, paused: true});
+        t2
+        .to(extruder, 0.25, {
+            x: '+=24',
+            transformOrigin:"50% 50%",
+            ease: Linear.easeOut,
+        })
+        .to(extruder, 0.5, {
+            x: '-=48',
+            transformOrigin:"50% 50%",
+            ease: Linear.ease,
+        })
+        .to(extruder, 0.25, {
+            x: '+=24',
+            transformOrigin:"50% 50%",
+            ease: Linear.easeIn,
+        });
+
+        var t3 = new TimelineMax({paused: true});
+        t3
+        .to(pipe, 5, {
+            y: '-=165',
+            transformOrigin: "50% 50%",
+            ease: Linear.ease,
+        })
+        .to(bg, 5, {
+            y: '-=165',
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        }, 0)
+        .fromTo(ukulele, 0.01, {opacity: 0}, {opacity: 1}, 0);
+
+        var t4 = new TimelineMax({paused: true});
+        t4
+        .to(extruder, 0.5, {
+            x: 88,
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        })
+        .to(pipe, 0.5, {
+            y: 166,
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        }, 0)
+        .to(bg, 0.5, {
+            y: '+=165',
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        }, 0)
+        .to(ukulele, 0.5, {
+            opacity: 0
+        }, 0)
+        .to(".printerst18", 0.5, {fill: "#6639a6"}, 0);
+
+        var t5 = new TimelineMax({paused: true});
+        t5
+        .to(pipe, 5, {
+            y: '-=165',
+            transformOrigin: "50% 50%",
+            ease: Linear.ease,
+        })
+        .to(bg, 5, {
+            y: '-=165',
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        }, 0)
+        .fromTo(hand, 0.01, {opacity: 0}, {opacity: 1}, 0);
+
+        var t6 = new TimelineMax({paused: true});
+        t6
+        .to(extruder, 0.5, {
+            x: 88,
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        })
+        .to(pipe, 0.5, {
+            y: 166,
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        }, 0)
+        .to(bg, 0.5, {
+            y: '+=165',
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        }, 0)
+        .to(hand, 0.5, {
+            opacity: 0
+        }, 0)
+        .to(".printerst18", 0.5, {fill: "#b83b5e"}, 0);
+
+        var t7 = new TimelineMax({paused: true});
+        t7
+        .to(pipe, 5, {
+            y: '-=80',
+            transformOrigin: "50% 50%",
+            ease: Linear.ease,
+        })
+        .to(bg, 5, {
+            y: '-=80',
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        }, 0)
+        .fromTo(drone, 0.01, {opacity: 0}, {opacity: 1}, 0);
+
+        var t8 = new TimelineMax({paused: true});
+        t8
+        .to(extruder, 0.5, {
+            x: 88,
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        })
+        .to(pipe, 0.5, {
+            y: 166,
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        }, 0)
+        .to(bg, 0.5, {
+            y: '+=80',
+            transformOrigin: "50% 50%",
+            ease: Linear.ease
+        }, 0)
+        .to(drone, 0.5, {
+            opacity: 0
+        }, 0)
+        .to(".printerst18", 0.5, {fill: "#3490de"}, 0);
+
+        var t9 = new TimelineMax({repeat: 5, paused: true});
+        t9
+        .to(extruder, 0.25, {
+            x: '+=36',
+            transformOrigin:"50% 50%",
+            ease: Linear.easeOut,
+        })
+        .to(extruder, 0.5, {
+            x: '-=72',
+            transformOrigin:"50% 50%",
+            ease: Linear.ease,
+        })
+        .to(extruder, 0.25, {
+            x: '+=36',
+            transformOrigin:"50% 50%",
+            ease: Linear.easeIn,
+        });
+
+        var t10 = new TimelineMax({repeat: 5, paused: true});
+        t10
+        .to(extruder, 0.25, {
+            x: '+=88',
+            transformOrigin:"50% 50%",
+            ease: Linear.easeOut,
+        })
+        .to(extruder, 0.5, {
+            x: '-=172',
+            transformOrigin:"50% 50%",
+            ease: Linear.ease,
+        })
+        .to(extruder, 0.25, {
+            x: '+=88',
+            transformOrigin:"50% 50%",
+            ease: Linear.easeIn,
+        });
+
+        var UkuleleTL = new TimelineMax({paused: true});
+        UkuleleTL
+        .add(t2.play())
+        .add(t3.play(), 0)
+        .add(t4.play());
+
+        var HandTL = new TimelineMax({paused: true});
+        HandTL
+        .add(t9.play())
+        .add(t5.play(), 0)
+        .add(t6.play());
+
+        var DroneTL = new TimelineMax({paused: true});
+        DroneTL
+        .add(t10.play())
+        .add(t7.play(), 0)
+        .add(t8.play());
+
+        var LoopTimeline = new TimelineMax({repeat: -1, paused: true});
+        LoopTimeline
+        .add(UkuleleTL.play())
+        .add(HandTL.play())
+        .add(DroneTL.play());
+
+        var MasterTL = new TimelineMax();
+        MasterTL
+        .add(t1.play())
+        .add(LoopTimeline.play());
 
         /* For the Social Media Icons */
+        /*
         var youtube = document.getElementById("youtube");
         var facebook = document.getElementById("facebook");
         var github = document.getElementById("github");
@@ -91,7 +355,7 @@
         }
 
         youtube.onclick = function() {
-            window.open("");
+            window.href = url("");
         }
 
         facebook.onmouseover = function() {
@@ -103,7 +367,7 @@
         }
 
         facebook.onclick = function() {
-            window.open("https://www.facebook.com/3D4E.UCLA/");
+            window.href = url("");
         }
 
         github.onmouseover = function() {
@@ -115,7 +379,7 @@
         }
 
         github.onclick = function() {
-            window.open("");
+            window.href = url("");
         }
 
         ig.onmouseover = function() {
@@ -127,7 +391,7 @@
         }
 
         ig.onclick = function() {
-            window.open("");
+            window.href = url("");
         }
 
         email.onmouseover = function() {
@@ -139,7 +403,8 @@
         }
 
         email.onclick = function() {
-            window.open("");
+            window.href = url("");
         }
+        */
     })
 }) (jQuery);
