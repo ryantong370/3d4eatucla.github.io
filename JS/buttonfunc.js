@@ -628,7 +628,7 @@
         }
 
         pdf2.addEventListener('click', function() {
-          window.location.href = "./tutorials/Fall '17 Week 2 - UCLA Keychain Instructions.pdf";
+          window.location.href = "https://docs.google.com/presentation/d/1OXGtRAVfbgntxGB2ykFNa0i6Lyam9pQy-iC-VmMx8QM/edit?usp=sharing";
         });
 
         // Workshop 3
@@ -643,7 +643,7 @@
         }
 
         pdf3.addEventListener('click', function() {
-          window.location.href = "./tutorials/Fall '17 Week 2 - UCLA Keychain Instructions.pdf";
+          window.location.href = "https://docs.google.com/presentation/d/1uEmhsjpfNWq8RfsmdQmfjmEnLdxKN9R6MwzUeqPbCnA/edit?usp=sharing";
         });
         });
 
