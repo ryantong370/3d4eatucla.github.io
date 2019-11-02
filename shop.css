@@ -78,6 +78,13 @@
 .ucla3d4e-tab-title {
     padding-top: 5em;
 }
+
+.ucla3d4e-item-div {
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
+  color: white;
+}
  
 .ucla3d4e-item {
     display: grid;
@@ -103,21 +110,25 @@
     text-align: start;
 }
 
+
+.ucla3d4e-feature-img {
+  object-fit: cover;
+  display: flex;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.ucla3d4e-product-details {
+  padding: 5em 0;
+}
+
 .carousel-cell {
     width: 66%;
     height: 500px;
     margin-right: 10px;
     border-radius: 5px;
     counter-increment: gallery-cell;
-}
-
-/* cell number */
-.ucla3d4e-feature-img {
-    object-fit: cover;
-    display: flex;
-    flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%;
 }
 
 .carousel-cell:before {

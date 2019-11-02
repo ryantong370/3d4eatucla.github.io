@@ -66,6 +66,7 @@
       </div>
     </div>
 
+    <!-- Content of this div will be replaced according to whichever product users select and want to buy-->
     <div id="shop-body">
       <div id="tab-shop-featured" class="ucla3d4e-feature-bar">
         <div class="carousel" data-flickity='{ "autoPlay": true, "wrapAround": true }'>        
@@ -93,25 +94,25 @@
         </div>
         <div class="ucla3d4e-apparel-bar">
           <div class="ucla3d4e-item">
-            <div id="clicker" style="width: 100%; height: 100%; overflow: hidden; color: white" data-itemDetails="./addtocart.html">
+            <div class="ucla3d4e-item-div" data-itemDetails="./products/kirby.html">
               <img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/>
               </div>
               <h5 class="ucla3d4e-item-desc">NAME | PRICE</h5>
           </div>
           <div class="ucla3d4e-item">
-              <div style="width: 100%; height: 100%; overflow: hidden; color: white">
+              <div class="ucla3d4e-item-div" >
                   <img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/>
                   </div>
             <h5 class="ucla3d4e-item-desc">NAME | PRICE</h5>
           </div>
           <div class="ucla3d4e-item">
-              <div style="width: 100%; height: 100%; overflow: hidden; color: white">
+              <div class="ucla3d4e-item-div" >
                   <img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/>
                   </div>
               <h5 class="ucla3d4e-item-desc">NAME | PRICE</h5>
           </div>
           <div class="ucla3d4e-item">
-              <div style="width: 100%; height: 100%; overflow: hidden; color: white">
+              <div class="ucla3d4e-item-div">
                   <img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/>
                   </div>
               <h5 class="ucla3d4e-item-desc">NAME | PRICE</h5>
@@ -125,25 +126,25 @@
             </div>
             <div class="ucla3d4e-apparel-bar">
               <div class="ucla3d4e-item">
-                  <div style="width: 100%; height: 100%; overflow: hidden; color: white">
+                  <div class="ucla3d4e-item-div">
                     <img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/>
                     </div>
                     <h5 class="ucla3d4e-item-desc">NAME | PRICE</h5>
                 </div>
                 <div class="ucla3d4e-item">
-                    <div style="width: 100%; height: 100%; overflow: hidden; color: white">
+                    <div class="ucla3d4e-item-div">
                         <img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/>
                         </div>
                   <h5 class="ucla3d4e-item-desc">NAME | PRICE</h5>
                 </div>
                 <div class="ucla3d4e-item">
-                    <div style="width: 100%; height: 100%; overflow: hidden; color: white">
+                    <div class="ucla3d4e-item-div">
                         <img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/>
                         </div>
                     <h5 class="ucla3d4e-item-desc">NAME | PRICE</h5>
                 </div>
                 <div class="ucla3d4e-item">
-                    <div style="width: 100%; height: 100%; overflow: hidden; color: white">
+                    <div class="ucla3d4e-item-div">
                         <img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/>
                         </div>
                     <h5 class="ucla3d4e-item-desc">NAME | PRICE</h5>
@@ -233,8 +234,8 @@
         });</script>
     <script type="text/javascript">
       $(document).ready(function () {
-        document.getElementById('clicker').addEventListener('click', function() {
-          $('#shop-body').load("./addtocart.html", function() {});
+        $("div.ucla3d4e-item-div").click(function(e) {
+          $('#shop-body').load($(this).attr("data-itemDetails"), function() {});
         })
       });
     </script>
