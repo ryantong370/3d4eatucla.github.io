@@ -1,0 +1,62 @@
+<div id="item-detail" style="display: block; padding-top: 8em">
+    <div class="ucla3d4e-tab-title">
+        <h4>ITEM NAME</h4>
+    </div>
+    <div class="ucla3d4e-item-preview">
+        <div style="width: 100%; display: block;">
+            <div class="carousel carousel-main" data-flickity>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    </div>
+                    
+                    <div class="carousel carousel-nav"
+                    data-flickity='{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false }'>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    <div class="carousel-cell"><img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/></div>
+                    </div>
+        </div>
+        <div class="ucla3d4e-item-config">
+            <h5>Amount</h5>
+            <input id="number" type="number" value="1">
+            <button id="checkout-button"
+            class="snipcart-add-item"
+            data-item-id="dennis"
+            data-item-price="0.00"
+            data-item-url="/addtocard.html"
+            data-item-description="High-quality replica of Dennis."
+            data-item-quantity="1"
+            data-item-image="./img/shop/bunny_1.jpg"
+            data-item-name="Dennis">
+            Add to cart
+          </button>
+        </div>
+    </div>
+</div>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        const selectElement = document.querySelector('#number');
+        selectElement.addEventListener('change', (event) => {
+            const result = event.target.value;
+            $('#checkout-button').attr('data-item-quantity', result);
+            console.log("Changed attribute to " + result)
+        ;});
+    });
+</script>
