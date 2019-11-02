@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<title>3D4E UCLA Shop</title>
+<title>Kirby With Legs | 3D4E UCLA Shop</title>
 <head>    
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link href="./../3d4e.css" rel="stylesheet">
     <link href="./../shop.css" rel="stylesheet">
-    <link href="./snipcart.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="MWE1ZWE3NDQtZjE4Ni00NzRlLTgyYjYtODBkMzA1NzRhNjhlNjM3MDgwMTcwNTg2NjE1MDI0"></script>
+    <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
 
     <!-- TODO: Update Mobile UIUX -->
     <meta charset="UTF-8">
@@ -16,14 +15,10 @@
     <meta property="og:image" content="img/favicon.png">
     <meta name="image" content="img/favicon.png">
     <meta property="og:image:type" content="image/png">
-    <meta name="keywords" content="UCLA, 3D4E, 3D, Printing, Design, Fabrication, Modelling, Printers, Innovation, Creation, Engineer, Engineering">
-    <meta name="author" content="Cheuk Yin Phipson Lee (李卓彥)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body style="height: 100%; background-color: #f0f5f9">
   <!-- SNIPCART API -->
-  <div hidden id="snipcart" data-api-key="MWE1ZWE3NDQtZjE4Ni00NzRlLTgyYjYtODBkMzA1NzRhNjhlNjM3MDgwMTcwNTg2NjE1MDI0"></div>
-
     <!-- Navigation Bar: Actual Menu (Display upon Button Click) -->
     <div id="3d4e-menu" class="ucla3d4e-shopmenu" style="z-index: 2">
         <div id="Logo" class="ucla3d4e-logocontainer">
@@ -90,7 +85,7 @@
                     class="snipcart-add-item"
                     data-item-id="kirby-legs"
                     data-item-price="0.01"
-                    data-item-url="/kirby.html"
+                    data-item-url="https://3d4eatucla.github.io/products/kirby.html"
                     data-item-description="Reimagining kirby with thick, swole legs and muscular arms."
                     data-item-quantity="1"
                     data-item-image="https://3d4eatucla.github.io/img/shop/kirby.jpg"
