@@ -63,7 +63,6 @@
             const selectColor = document.querySelector('#color');
             selectColor.addEventListener('change', (event) => {
                 const result = event.target.value;
-                const currPrice = $('#checkout-button').attr('data-item-price');
                 $('#checkout-button').attr('data-item-custom1-value', result);
                 console.log("Changed attribute to " + result);
             });
