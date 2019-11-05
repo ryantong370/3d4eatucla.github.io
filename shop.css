@@ -1,31 +1,95 @@
- .ucla3d4e-shopmenu {
-    background-color: #1e2022;
-    top: 0;
-    width: 100%;
-    height: 8em;
-    padding: 0% 1.5%;
-    position: fixed;
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 2fr 5fr 3fr;
-    grid-template-rows: 1fr;
-    transition: top 0.5s;
-   }
+.ucla3d4e-shopmenu {
+  background-color: #151718;
+  top: -8em;
+  width: 100%;
+  height: 8em;
+  padding: 0% 1.5%;
+  position: fixed;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 2fr 5fr 3fr;
+  grid-template-rows: 1fr;
+  transition: top 0.5s;
+  }
+
+.ucla3d4e-menuitems-shop {
+width: 100%;
+height: 100%;
+display: grid;
+align-items: center;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: 1fr;
+}
+
+.logostyle-shop {
+  fill:none;
+  stroke: #fdfdfd;
+  stroke-width:30;
+  stroke-miterlimit:10;
+}
+
+.shop3d4e-bottomdiv {
+  width: 20%;
+  padding: 3em;
+  bottom: -8em;
+  left: 0;
+  z-index: 2;
+  position: fixed;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-gap: 8em;
+  transition: bottom 0.5s;
+}
+
+.shop3d4e-bottombutton {
+  display: block;
+  padding: 5px;
+  border-radius: 50%;
+  border: none;
+  background-color: #3f72af;
+  transition: background-color 0.25s;
+}
+
+.shop3d4e-addbutton {
+  width: 100%;
+  padding: 1em;
+  border-radius: 5px;
+  background-color: #3f72af;
+  transition: background-color 0.25s;
+}
+
+.shop3d4e-addbutton:hover, .shop3d4e-bottombutton:hover {
+  background-color: #769fcd;
+}
 
 .scrollUp {
-    top: -8em;
+    top: 0;
+}
+
+.bottomDown {
+    bottom: 0;
+}
+
+#shop-body {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.shop-fadeOut {
+  opacity: 0 !important;
 }
 
 .ucla3d4e-shoptitle{
     text-align: center;
-    color: #c9d6df;
+    color: #fdfdfd;
   }
 
-  .shop-socialmedia {
-    fill: #c9d6df;
-    stroke: #c9d6df;
-    cursor: pointer;
-  }
+.shop-socialmedia {
+  fill: #f5f5f5;
+  stroke: #f5f5f5;
+}
 
 .shophighlight {
     display: inline;
@@ -108,6 +172,15 @@
 
 .ucla3d4e-item-desc {
     text-align: start;
+}
+
+/* For product forms */
+input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
 }
 
 
