@@ -81,3 +81,65 @@
   </div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="./JS/TweenMax.min.js" type="text/javascript"></script>
+    <script src="./JS/shopMenu.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        'use strict';
+        
+        var c, currentScrollTop = 0,
+            navbar = document.getElementById("3d4e-menu"),
+            cartbar = document.getElementById("cart-inquiry-menu");
+
+        $(navbar).addClass("scrollUp");
+        $(cartbar).addClass("bottomDown");
+
+        $(window).scroll(function () {
+            var a = $(window).scrollTop();
+            var b = $(navbar).height() - 25;
+          
+            currentScrollTop = a;
+          
+            if (c < currentScrollTop && a > b + b) {
+              $(navbar).removeClass("scrollUp");
+              $(cartbar).removeClass("bottomDown");
+            } else if (c > currentScrollTop && !(a <= b)) {
+              $(navbar).addClass("scrollUp");
+              $(cartbar).addClass("bottomDown");
+            }
+            c = currentScrollTop;
+        });
+        
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+
+        navbar = document.getElementById("3d4e-menu"),
+        cartbar = document.getElementById("cart-inquiry-menu")
+
+        document.addEventListener('snipcart.ready', function() {
+          $("#shop3d4e-cart").click(function(e) {
+            Snipcart.api.modal.show();
+          });
+        })
+
+        $("div.ucla3d4e-item-div").click(function(e) {
+          var hitVal = $(this);
+          
+          // Animation for making everything fade out
+          $(navbar).removeClass("scrollUp");
+          $(cartbar).removeClass("bottomDown");
+          $("#shop-body").addClass("shop-fadeOut");
+
+          // Delay before fading back in with new content
+          setTimeout(function() {
+            $("#shop-body").load($(hitVal).attr("data-itemDetails"), function() {});
+            $(navbar).load('./layouts/shopReturnHeader.html', function() {});
+            $("#shop-body").removeClass("shop-fadeOut");
+            $(navbar).addClass("scrollUp");
+            $(cartbar).addClass("bottomDown");
+          }, 600)
+        })
+      });
+    </script>
