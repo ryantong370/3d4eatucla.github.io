@@ -33,7 +33,6 @@ grid-template-rows: 1fr;
   padding: 3em;
   bottom: -8em;
   left: 0;
-  z-index: 2;
   position: fixed;
   display: grid;
   align-items: center;
@@ -41,6 +40,7 @@ grid-template-rows: 1fr;
   grid-template-rows: 1fr;
   grid-gap: 8em;
   transition: bottom 0.5s;
+  z-index: 3;
 }
 
 .shop3d4e-bottombutton {
@@ -72,13 +72,13 @@ grid-template-rows: 1fr;
     bottom: 0;
 }
 
-#shop-body {
-  opacity: 1;
+#shop-body, #item-body {
+  opacity: 0;
   transition: opacity 0.5s;
 }
 
 .shop-fadeOut {
-  opacity: 0 !important;
+  opacity: 1 !important;
 }
 
 .ucla3d4e-shoptitle{
@@ -265,11 +265,15 @@ input[type=number], select {
 
 .ucla3d4e-item-config {
     display: grid;
-    grid-auto-rows: 1fr;
     grid-template-columns: 1fr;
     grid-gap: 3em;
     align-items: center;
     justify-items: center;
     width: 100%;
     padding: 5%;
+}
+
+.shop-back-btn {
+  color: #fdfdfd;
+  cursor: pointer;
 }

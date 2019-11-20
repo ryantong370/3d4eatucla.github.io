@@ -8,6 +8,14 @@
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="MWE1ZWE3NDQtZjE4Ni00NzRlLTgyYjYtODBkMzA1NzRhNjhlNjM3MDgwMTcwNTg2NjE1MDI0"></script>
     <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
+    <script src="https://js.braintreegateway.com/web/dropin/1.20.4/js/dropin.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.55.0/js/client.min.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+    <script defer src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js"></script>  
 
     <!-- TODO: Update Mobile UIUX -->
     <meta charset="UTF-8">
@@ -20,9 +28,9 @@
     <meta name="author" content="Cheuk Yin Phipson Lee (李卓彥)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body style="height: 100%; background-color: #f0f5f9">
+  <body style="background-color: #f0f5f9">
     <!-- Navigation Bar: Actual Menu (Display upon Button Click) -->
-    <div id="3d4e-menu" class="ucla3d4e-shopmenu" style="z-index: 2">
+    <div id="3d4e-menu" class="ucla3d4e-shopmenu" style="z-index: 3">
         <div id="Logo" class="ucla3d4e-logocontainer">
             <a href="#shop-body">
               <svg id="shop-main-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
@@ -98,31 +106,7 @@
         <div class="ucla3d4e-tab-title">
           <h4>3D Prints</h4>
         </div>
-        <div class="ucla3d4e-apparel-bar">
-          <div class="ucla3d4e-item">
-            <div class="ucla3d4e-item-div" data-itemDetails="./products/kirby.html">
-              <img class="ucla3d4e-item-img" src="img/shop/kirby.jpg" style="object-position: 50% 30%"/>
-              </div>
-              <h5 class="ucla3d4e-item-desc"><font color="#112d4e">KIRBY WITH LEGS</font> <font color="#dbe2ef">|</font> <font color="#3f72af">$5.00 USD</font></h5>
-          </div>
-          <div class="ucla3d4e-item">
-              <div class="ucla3d4e-item-div" data-itemDetails="./products/pikachu.html">
-                  <img class="ucla3d4e-item-img" src="img/shop/pikachu.jpg" style="object-position: 50% 15%"/>
-                  </div>
-                  <h5 class="ucla3d4e-item-desc"><font color="#112d4e">PIKACHU WITH LEGS</font> <font color="#dbe2ef">|</font> <font color="#3f72af">$5.00 USD</font></h5>
-          </div>
-          <div class="ucla3d4e-item">
-              <div class="ucla3d4e-item-div" data-itemDetails="./products/bunny.html">
-                  <img class="ucla3d4e-item-img" src="img/shop/bunny_1.jpg"/>
-                  </div>
-                  <h5 class="ucla3d4e-item-desc"><font color="#112d4e">Usagyuuun</font> <font color="#dbe2ef">|</font> <font color="#3f72af">$5.00 USD</font></h5>
-          </div>
-          <div class="ucla3d4e-item">
-              <div class="ucla3d4e-item-div" data-itemDetails="./products/keychain.html">
-                  <img class="ucla3d4e-item-img" src="img/shop/keychain.jpg"/>
-                  </div>
-                  <h5 class="ucla3d4e-item-desc"><font color="#112d4e">UCLA Keychains</font> <font color="#dbe2ef">|</font> <font color="#3f72af">$3.00 USD</font></h5>
-          </div>
+        <div id="bar-prints" class="ucla3d4e-apparel-bar">
         </div>
       </div>
 
@@ -156,6 +140,7 @@
             </div>
       </div>
     </div>
+
     <script src="./JS/TweenMax.min.js" type="text/javascript"></script>
     <script src="./JS/shopMenu.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -226,32 +211,75 @@
     <script type="text/javascript">
       $(document).ready(function () {
 
-        navbar = document.getElementById("3d4e-menu"),
-        cartbar = document.getElementById("cart-inquiry-menu")
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyCqg70oIfaRz5PLXXWzsFsXjboDK5YsNFs",
+          authDomain: "d4etest-9bc54.firebaseapp.com",
+          databaseURL: "https://d4etest-9bc54.firebaseio.com",
+          projectId: "d4etest-9bc54",
+          storageBucket: "d4etest-9bc54.appspot.com",
+          messagingSenderId: "922369219759",
+          appId: "1:922369219759:web:b5944a388525623636485a",
+          measurementId: "G-87WWKGZ2Y8"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        //firebase.analytics();
 
-        document.addEventListener('snipcart.ready', function() {
-          $("#shop3d4e-cart").click(function(e) {
-            Snipcart.api.modal.show();
+        function appendDB(dbKey, sectionID) {
+          var modelsRef = firebase.database().ref(dbKey).orderByKey();
+          modelsRef.once("value", function(snapshot) {
+            console.log(snapshot.key);
+            console.log(JSON.stringify(snapshot.val(), null, 2));
+            snapshot.forEach(function(childSnapshot) {
+              var key = childSnapshot.key;
+
+              var modelName = childSnapshot.val().name;
+              var modelPrice = childSnapshot.val().price;
+
+              var newItem = `<div class="ucla3d4e-item">
+                              <div class="ucla3d4e-item-div" data-item-details="${key}" data-item-collection="${dbKey}">
+                                <img class="ucla3d4e-item-img" src="img/shop/kirby.jpg" style="object-position: 50% 30%"/>
+                                </div>
+                                <h5 class="ucla3d4e-item-desc"><font color="#112d4e">${modelName}</font> <font color="#dbe2ef">|</font> <font color="#3f72af">$${modelPrice.toFixed(2)} USD</font></h5>
+                            </div>`;
+
+              $("#" + sectionID).append(newItem);
+              });
+
+            // After everything loaded, we init
+            $("#shop-body").addClass("shop-fadeOut");
+
+            $("div.ucla3d4e-item-div").click(function(e) {
+              var hitVal = $(this);
+              
+              // Animation for making everything fade out
+              $(navbar).removeClass("scrollUp");
+              $(cartbar).removeClass("bottomDown");
+              $("#shop-body").removeClass("shop-fadeOut");
+
+              var docName = $(hitVal).attr("data-item-details");
+              var colName = $(hitVal).attr("data-item-collection");
+
+              var modelsRef = firebase.database().ref(colName).orderByKey();
+              modelsRef.once("value", function(snapshot) {
+                console.log(snapshot.child(docName).val());
+                localStorage.setItem("product", JSON.stringify(snapshot.child(docName).val(), null, 2));
+              });
+
+              // Delay before fading back in with new content
+              setTimeout(function() {
+                window.location.href = "./products/details.html";
+              }, 600)
+            });
           });
-        })
+        };
 
-        $("div.ucla3d4e-item-div").click(function(e) {
-          var hitVal = $(this);
-          
-          // Animation for making everything fade out
-          $(navbar).removeClass("scrollUp");
-          $(cartbar).removeClass("bottomDown");
-          $("#shop-body").addClass("shop-fadeOut");
+        appendDB("3dmodels","bar-prints");
 
-          // Delay before fading back in with new content
-          setTimeout(function() {
-            $("#shop-body").load($(hitVal).attr("data-itemDetails"), function() {});
-            $(navbar).load('./layouts/shopReturnHeader.html', function() {});
-            $("#shop-body").removeClass("shop-fadeOut");
-            $(navbar).addClass("scrollUp");
-            $(cartbar).addClass("bottomDown");
-          }, 600)
-        })
+        navbar = document.getElementById("3d4e-menu"),
+        cartbar = document.getElementById("cart-inquiry-menu");
+
       });
     </script>
 </body>
