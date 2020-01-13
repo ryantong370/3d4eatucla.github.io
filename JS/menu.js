@@ -36,6 +36,18 @@
             TweenMax.to(navlogo, 0.5, {transformOrigin:"50% 50%", scale: 1});
         };
 
+        // Hamburger Menu Dev
+        $("#hamMenu").click(function() {
+            if ($(this).hasClass("is-active")) {
+                $(this).removeClass("is-active");
+                TweenMax.to("#MobileMenuUI", 0.5, {css:{visibility: "hidden"}});
+            } else {
+                $(this).addClass("is-active");
+                TweenMax.to("#MobileMenuUI", 0.5, {css:{visibility: "visible"}});
+
+            }
+        })
+
         // TODO: Media and Printer Animation on press for first time
         // TODO: Underline instead of color change
         // TODO: Investigate reason for blue borders?
